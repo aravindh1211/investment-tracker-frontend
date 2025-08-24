@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { formatCurrency, calculateGainLossColor, formatMonth } from '@/lib/utils'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts'
 import { Plus, RefreshCw, TrendingUp, TrendingDown, Calendar } from 'lucide-react'
 import { MonthlyGrowthForm } from '@/types'
 
@@ -274,10 +274,13 @@ export default function MonthlyGrowthPage() {
                     formatter={(value: number) => [formatCurrency(value), 'P&L']}
                   />
                   <Bar 
-                    dataKey="pnl" 
-                    fill={(entry: any) => entry.pnl >= 0 ? '#10B981' : '#EF4444'}
-                    name="Monthly P&L"
-                  />
+                dataKey="pnl" 
+                name="Monthly P&L"
+              >
+                {last12Months.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.pnl >= 0 ? '#10B981' : '#EF4444'} />
+                ))}
+              </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -377,4 +380,5 @@ export default function MonthlyGrowthPage() {
       </Card>
     </div>
   )
+
 }
