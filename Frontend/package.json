@@ -20,7 +20,10 @@
     "@heroicons/react": "^2.1.5",
     "@tanstack/react-table": "^8.19.3",
     "date-fns": "^3.6.0",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "react-hook-form": "^7.52.1",
+    "@hookform/resolvers": "^3.9.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.12",
@@ -37,4 +40,5 @@
     "node": ">=18.0.0"
   }
 }
+
 
