@@ -15,7 +15,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
 const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || ''
 
 class ApiClient {
-  private async makeRequest<T>(
+  public async makeRequest<T>(
     endpoint: string,
     options: RequestInit = {}
   ): Promise<T> {
@@ -117,3 +117,4 @@ export const apiClient = new ApiClient()
 
 // SWR fetcher function
 export const fetcher = (url: string) => apiClient.makeRequest(url)
+
