@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: false,
-  },
+  reactStrictMode: true,
+  swcMinify: true,
+  
+  // Environment variables
   env: {
-    BACKEND_URL: process.env.BACKEND_URL || 'http://localhost:3000',
-    API_TOKEN: process.env.API_TOKEN,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
   },
   async rewrites() {
     return [
@@ -19,5 +16,6 @@ const nextConfig = {
     ];
   },
 }
+
 
 module.exports = nextConfig
