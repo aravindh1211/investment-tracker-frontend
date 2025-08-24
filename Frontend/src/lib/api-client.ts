@@ -10,8 +10,9 @@ import {
   ApiError 
 } from '@/types'
 
-const API_BASE_URL = process.env.BACKEND_URL || 'http://localhost:3000'
-const API_TOKEN = process.env.API_TOKEN || ''
+// Use the NEXT_PUBLIC_ variable which is exposed to the browser
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || ''
 
 class ApiClient {
   private async makeRequest<T>(
